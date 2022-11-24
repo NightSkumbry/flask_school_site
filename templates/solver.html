@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+
+<html lang="ru">
+    <head>
+        {% block head %}{{ super() }}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {% block nav_bar %}{{ super() }}{% endblock %}
+            <h2><font color="#D22222">Данная страница пока не готова</font></h2>
+        {% endblock %}
+    </body>
+</html>

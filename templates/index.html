@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Решатель задач</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" type="text/css"/>
+    </head>
+    <body>
+        {% block body %}
+            {% block nav_bar %}
+                <div class="nav-bar">
+                    {% for but in nav_list -%}
+                        {% if but.active -%}
+                            <div class="nav-bar-subdiv">
+                                <b class="nav-bar-elem active">{{ but.text }}</b>
+                            </div>
+                        {% else -%}
+                            <div class="nav-bar-subdiv">
+                                <a class="nav-bar-elem" href="{{ but.href }}">{{ but.text }}</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endblock %}
+            {% block content %}
+                <h1>Сайт</h1><h2>Пока без названия</h2>
+                <p>На сайте есть <b>панель навигации</b> сверху, а эта страница нужна просто потому что пока что.</p>
+            {% endblock %}
+        {% endblock %}
+    </body>
+</html>
