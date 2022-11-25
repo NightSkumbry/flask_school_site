@@ -3,12 +3,23 @@
 
 <html lang="ru">
     <head>
+    <title>Задачи</title>
         {% block head %}{{ super() }}{% endblock %}
     </head>
     <body>
         {% block body %}
             {% block nav_bar %}{{ super() }}{% endblock %}
             <h2 style="color:#D22222">Данная страница пока не готова</h2>
+            {% block onpage_bar %}
+                <div class="onpage-bar">
+                    <div class="onpage-bar-subdiv">
+                        <b class="onpage-bar-elem active">Hi</b>
+                    </div>
+                    <div class="onpage-bar-subdiv">
+                        <a class="onpage-bar-elem">Hellew</a>
+                    </div>
+                </div>
+            {% endblock %}
         {% endblock %}
     </body>
 </html>

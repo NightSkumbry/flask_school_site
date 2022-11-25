@@ -15,7 +15,7 @@ class BarElem:
 
     def set_active(self, state: str):
         self.active = state
-        if self.father is not None:
+        if state != 'none' and self.father is not None:
             set_active_elem(self.father, 'parent')
 
     def __str__(self):
@@ -25,7 +25,7 @@ class BarElem:
 nav_bar_list: dict[str, BarElem] = {
     'home': BarElem('home', '/', 'Главная', 'nav'),
     'tasks': BarElem('tasks', '/tasks', 'Задачи', 'nav'),
-    'solver': BarElem('solver', '/tasks/solver', 'Кодирование', 'tasks', 'tasks')
+    'encoder': BarElem('encoder', '/tasks/encoder', 'Кодирование', 'tasks', 'tasks')
 }
 
 
@@ -52,11 +52,11 @@ def tasks():
     return render_template('tasks.html', nav_list=list(nav_bar_list.values()))
 
 
-@app.route('/tasks/solver')
-def solver():
-    print([str(x) for x in nav_bar_list.values()])
-    set_active_elem('solver')
-    return render_template('solver.html', nav_list=list(nav_bar_list.values()))
+@app.route('/tasks/encoder')
+def encoder():
+    # print([str(x) for x in nav_bar_list.values()])
+    set_active_elem('encoder')
+    return render_template('tasks/encoder.html', nav_list=list(nav_bar_list.values()))
 
 
 @app.route('/secret_page')

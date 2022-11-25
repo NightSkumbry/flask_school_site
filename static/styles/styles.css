@@ -3,7 +3,7 @@
     padding-left: 4px
 }
 
-.nav-bar {
+div.nav-bar {
 	height: 67px;
 	padding: 0 16px;
 	display: flex;
@@ -14,12 +14,12 @@
 	border: 1px solid #e7e7e7;
 }
 
-.nav-bar-subdiv {
+div.nav-bar-subdiv {
 	border-right: 5px solid #f3f3f3;
 	align-items: center;
 }
 
-.nav-bar-elem {
+a.nav-bar-elem, b.nav-bar-elem {
 	margin: auto;
 	display: block;
 	padding: 8px;
@@ -28,21 +28,41 @@
 	text-align: center;
 }
 
-.nav-bar-elem:hover:not(.active) {
+a.nav-bar-elem:hover:not(.active) {
 	background-color: #ddd;
 }
 
-.nav-bar-elem.active {
+a.nav-bar-elem.active, b.nav-bar-elem.active {
 	color: white;
 	background-color: #6495ED;
 }
 
-
-.solver-type-bar {
-	list-style-type: none;
+div.onpage-bar {
 	margin: 0;
 	padding: 0;
 	width: 200px;
-	background-color: #f3f3f3;
+	background-color: #f1f1f1;
 	border: 1px solid #555;
+    border-bottom: none;
+}
+
+div.onpage-bar-subdiv {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+b.onpage-bar-elem, a.onpage-bar-elem {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+}
+
+b.onpage-bar-elem.active, a.onpage-bar-elem.active {
+    background-color: #6495ED;
+    color: white;
+}
+
+a.onpage-bar-elem:hover:not(.active) {
+    background-color: #555;
+    color: white;
 }

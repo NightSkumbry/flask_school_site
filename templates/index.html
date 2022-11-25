@@ -2,27 +2,25 @@
 <html lang="ru">
     <head>
         <title>Решатель задач</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" type="text/css"/>
+        {% block head %}
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}" type="text/css"/>
+        {% endblock %}
     </head>
     <body>
         {% block body %}
             {% block nav_bar %}
                 <div class="nav-bar">
                     {% for but in nav_list -%}
-                        {% if but.active == 'self' and but.bar == 'nav' -%}
-                            <div class="nav-bar-subdiv">
+                        <div class="nav-bar-subdiv">
+                            {% if but.active == 'self' and but.bar == 'nav' -%}
                                 <b class="nav-bar-elem active">{{ but.text }}</b>
-                            </div>
-                        {% elif but.active == 'parent' and but.bar == 'nav' -%}
-                            <div class="nav-bar-subdiv">
-                                <a class="nav-bar-elem active" href="{{ but.href }}">{{ but.text }}</a>
-                            </div>
-                        {% elif but.bar == 'nav' -%}
-                            <div class="nav-bar-subdiv">
+                            {% elif but.active == 'parent' and but.bar == 'nav' -%}
+                                <a class="nav-bar-elem active" href="{{ but.href }}"> <b>{{ but.text }}</b> </a>
+                            {% elif but.bar == 'nav' -%}
                                 <a class="nav-bar-elem" href="{{ but.href }}">{{ but.text }}</a>
-                            </div>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     {% endfor %}
                 </div>
             {% endblock %}
