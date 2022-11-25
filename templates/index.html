@@ -10,11 +10,15 @@
             {% block nav_bar %}
                 <div class="nav-bar">
                     {% for but in nav_list -%}
-                        {% if but.active -%}
+                        {% if but.active == 'self' and but.bar == 'nav' -%}
                             <div class="nav-bar-subdiv">
                                 <b class="nav-bar-elem active">{{ but.text }}</b>
                             </div>
-                        {% else -%}
+                        {% elif but.active == 'parent' and but.bar == 'nav' -%}
+                            <div class="nav-bar-subdiv">
+                                <a class="nav-bar-elem active" href="{{ but.href }}">{{ but.text }}</a>
+                            </div>
+                        {% elif but.bar == 'nav' -%}
                             <div class="nav-bar-subdiv">
                                 <a class="nav-bar-elem" href="{{ but.href }}">{{ but.text }}</a>
                             </div>
@@ -23,8 +27,13 @@
                 </div>
             {% endblock %}
             {% block content %}
-                <h1>Сайт</h1><h2>Пока без названия</h2>
-
+                <h1>Заголовок...</h1>
+                <p>Но никто не пришёл.</p>
+                <p style="color:white">Не переходите на <b>/secret_page</b> пожалуйста</p>
+                <h2>Что нового</h2>
+                <p class="chapter-elem">Сорян, но пока идёт разработка я сам не знаю<br>
+                    Терпи
+                </p>
             {% endblock %}
         {% endblock %}
     </body>

@@ -1,3 +1,8 @@
+.chapter-elem {
+    border-left: 5px solid #cCcCcC;
+    padding-left: 4px
+}
+
 .nav-bar {
 	height: 67px;
 	padding: 0 16px;
