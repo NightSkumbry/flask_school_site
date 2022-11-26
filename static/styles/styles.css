@@ -19,7 +19,7 @@ div.nav-bar-subdiv {
 	align-items: center;
 }
 
-a.nav-bar-elem, b.nav-bar-elem {
+.nav-bar-elem {
 	margin: auto;
 	display: block;
 	padding: 8px;
@@ -28,11 +28,11 @@ a.nav-bar-elem, b.nav-bar-elem {
 	text-align: center;
 }
 
-a.nav-bar-elem:hover:not(.active) {
+.nav-bar-elem:hover:not(.active) {
 	background-color: #ddd;
 }
 
-a.nav-bar-elem.active, b.nav-bar-elem.active {
+.nav-bar-elem.active {
 	color: white;
 	background-color: #6495ED;
 }
@@ -47,22 +47,61 @@ div.onpage-bar {
 }
 
 div.onpage-bar-subdiv {
+    position: relative;
     text-align: center;
     border-bottom: 1px solid #555;
 }
 
-b.onpage-bar-elem, a.onpage-bar-elem {
+.onpage-bar-elem {
     display: block;
+    text-decoration: none;
     color: #000;
-    padding: 8px 16px;
+    padding: 8px 8px 8px 16px;
 }
 
-b.onpage-bar-elem.active, a.onpage-bar-elem.active {
-    background-color: #6495ED;
+.onpage-bar-elem.active {
+    background-color: #9577BB;
     color: white;
 }
 
-a.onpage-bar-elem:hover:not(.active) {
+.onpage-bar-elem.active:hover {
+    background-color: #7552A3;
+}
+
+.onpage-bar-elem:hover:not(.active) {
     background-color: #555;
     color: white;
+}
+
+.onpage-bar-dropdown {
+    display: none;
+    position: absolute;
+    left: 200px;
+    top: -1px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 8px 0 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    border-left: 1px solid #555;
+    padding: 2px;
+}
+
+.onpage-bar-subdiv:hover .onpage-bar-dropdown {
+    display: block;
+}
+
+.onpage-bar-dropdown .drop-elem {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.onpage-bar-dropdown .drop-elem.active {
+    background-color: #F65161;
+    color: white;
+}
+
+.onpage-bar-dropdown .drop-elem:hover:not(.active) {
+    background-color: #f1f1f1;
 }

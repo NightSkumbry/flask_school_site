@@ -22,47 +22,56 @@ class BarElem:
         return f'{self.id}, {self.active}, {self.father}'
 
 
-nav_bar_list: dict[str, BarElem] = {
-    'home': BarElem('home', '/', 'Главная', 'nav'),
-    'tasks': BarElem('tasks', '/tasks', 'Задачи', 'nav'),
-    'encoder': BarElem('encoder', '/tasks/encoder', 'Кодирование', 'tasks', 'tasks')
+bars_list: dict[str, BarElem] = {
+    'home': BarElem(id_='home', href='/', text='Главная', bar='nav'),
+    'tasks': BarElem(id_='tasks', href='/tasks', text='Задачи', bar='nav'),
+    'it': BarElem(id_='it', href='/tasks/it', text='Информатика', bar='task', father='tasks'),
+    'encoder': BarElem(id_='encoder', href='/tasks/it/encoder', text='Кодирование', bar='it', father='it'),
+    'maths': BarElem(id_='maths', href='/tasks/maths', text='Математика', bar='task', father='tasks'),
+    'c': BarElem(id_='encoder', href='/tasks/it/encoder', text='Кодирование', bar='it', father='it') # ПРОБЛЕМА!!!!!!!!!!!!
 }
 
 
 def set_active_elem(id_, state: str = 'self'):
     if state == 'self':
-        for i in nav_bar_list.values():
+        for i in bars_list.values():
             i.set_active('none')
-    if id_ in nav_bar_list.keys():
-        nav_bar_list[id_].set_active(state)
+    if id_ in bars_list.keys():
+        bars_list[id_].set_active(state)
     else:
-        for i in nav_bar_list.values():
+        for i in bars_list.values():
             i.set_active('none')
 
 
 @app.route('/')
 def index():
     set_active_elem('home')
-    return render_template('index.html', nav_list=list(nav_bar_list.values()))
+    return render_template('index.html', bars_list=list(bars_list.values()))
 
 
 @app.route('/tasks')
 def tasks():
     set_active_elem('tasks')
-    return render_template('tasks.html', nav_list=list(nav_bar_list.values()))
+    return render_template('tasks.html', bars_list=list(bars_list.values()))
 
 
-@app.route('/tasks/encoder')
+@app.route('/tasks/it')
+def it():
+    set_active_elem('it')
+    return render_template('tasks/it.html', bars_list=list(bars_list.values()))
+
+
+@app.route('/tasks/it/encoder')
 def encoder():
-    # print([str(x) for x in nav_bar_list.values()])
+    # print([str(x) for x in bars_list.values()])
     set_active_elem('encoder')
-    return render_template('tasks/encoder.html', nav_list=list(nav_bar_list.values()))
+    return render_template('tasks/it/encoder.html', bars_list=list(bars_list.values()))
 
 
 @app.route('/secret_page')
 def secret_page():
     set_active_elem(None)
-    return render_template('not_ready.html', nav_list=list(nav_bar_list.values()))
+    return render_template('not_ready.html', bars_list=list(bars_list.values()))
 
 
 if __name__ == '__main__':

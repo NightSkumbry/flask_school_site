@@ -11,16 +11,20 @@
         {% block body %}
             {% block nav_bar %}
                 <div class="nav-bar">
-                    {% for but in nav_list -%}
-                        <div class="nav-bar-subdiv">
-                            {% if but.active == 'self' and but.bar == 'nav' -%}
-                                <b class="nav-bar-elem active">{{ but.text }}</b>
-                            {% elif but.active == 'parent' and but.bar == 'nav' -%}
+                    {% for but in bars_list -%}
+                        {% if but.active == 'self' and but.bar == 'nav' -%}
+                            <div class="nav-bar-subdiv">
+                                <b class="nav-bar-elem active" style="cursor: default">{{ but.text }}</b>
+                            </div>
+                        {% elif but.active == 'parent' and but.bar == 'nav' -%}
+                            <div class="nav-bar-subdiv">
                                 <a class="nav-bar-elem active" href="{{ but.href }}"> <b>{{ but.text }}</b> </a>
-                            {% elif but.bar == 'nav' -%}
+                            </div>
+                        {% elif but.bar == 'nav' -%}
+                            <div class="nav-bar-subdiv">
                                 <a class="nav-bar-elem" href="{{ but.href }}">{{ but.text }}</a>
-                            {% endif %}
-                        </div>
+                            </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             {% endblock %}
