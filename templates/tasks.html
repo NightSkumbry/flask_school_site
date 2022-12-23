@@ -9,7 +9,7 @@
     <body>
         {% block body %}
             {% block nav_bar %}{{ super() }}{% endblock %}
-            <h2 style="color:#D22222">Данная страница пока не готова</h2>
+            <br><br>
             {% block onpage_bar %}
                 <div class="onpage-bar">
                     {% for but in bars_list -%}
@@ -18,7 +18,7 @@
                                 <b class="onpage-bar-elem active" style="cursor: default;">{{ but.text }} <b style="float: right">▶</b> </b>
                                 <div class="onpage-bar-dropdown">
                                     {% for drop in bars_list -%}
-                                        {% if drop.bar == but.id and drop.active == 'self' -%}
+                                        {% if drop.bar == but.id and drop.active == 'sttelf' -%}
                                             <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
                                         {% elif drop.bar == but.id -%}
                                             <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
@@ -55,6 +55,7 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+                <p>АГАГАГАГА</p>
             {% endblock %}
         {% endblock %}
     </body>

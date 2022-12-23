@@ -27,8 +27,7 @@ bars_list: dict[str, BarElem] = {
     'tasks': BarElem(id_='tasks', href='/tasks', text='Задачи', bar='nav'),
     'it': BarElem(id_='it', href='/tasks/it', text='Информатика', bar='task', father='tasks'),
     'encoder': BarElem(id_='encoder', href='/tasks/it/encoder', text='Кодирование', bar='it', father='it'),
-    'maths': BarElem(id_='maths', href='/tasks/maths', text='Математика', bar='task', father='tasks'),
-    'c': BarElem(id_='encoder', href='/tasks/it/encoder', text='Кодирование', bar='it', father='it') # ПРОБЛЕМА!!!!!!!!!!!!
+    'maths': BarElem(id_='maths', href='/tasks/maths', text='Математика', bar='task', father='tasks')
 }
 
 

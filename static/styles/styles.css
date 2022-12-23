@@ -1,25 +1,29 @@
-.chapter-elem {
-    border-left: 5px solid #cCcCcC;
+.chapter-answer {
+    border-left: 5px solid #ccc;
     padding-left: 4px
 }
 
-div.nav-bar {
+nav {
 	height: 67px;
 	padding: 0 16px;
-	display: flex;
-	flex-direction: row;
+    display: block;
 	align-items: center;
 	background-color: #f3f3f3;
 	overflow: hidden;
 	border: 1px solid #e7e7e7;
 }
 
-div.nav-bar-subdiv {
+nav li {
 	border-right: 5px solid #f3f3f3;
 	align-items: center;
+    display: inline-block;
 }
 
-.nav-bar-elem {
+nav ul {
+    padding: 0;
+}
+
+nav .element {
 	margin: auto;
 	display: block;
 	padding: 8px;
@@ -28,11 +32,15 @@ div.nav-bar-subdiv {
 	text-align: center;
 }
 
-.nav-bar-elem:hover:not(.active) {
+nav a.element.active:hover {
+    background-color: #3674E7;
+}
+
+nav .element:hover:not(.active) {
 	background-color: #ddd;
 }
 
-.nav-bar-elem.active {
+nav .element.active {
 	color: white;
 	background-color: #6495ED;
 }
@@ -57,6 +65,8 @@ div.onpage-bar-subdiv {
     text-decoration: none;
     color: #000;
     padding: 8px 8px 8px 16px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .onpage-bar-elem.active {
@@ -64,11 +74,11 @@ div.onpage-bar-subdiv {
     color: white;
 }
 
-.onpage-bar-elem.active:hover {
-    background-color: #7552A3;
+.onpage-bar-subdiv:hover .onpage-bar-elem.active {
+    background-color: #6B4B95;
 }
 
-.onpage-bar-elem:hover:not(.active) {
+.onpage-bar-subdiv:hover .onpage-bar-elem:not(.active) {
     background-color: #555;
     color: white;
 }
@@ -82,11 +92,11 @@ div.onpage-bar-subdiv {
     min-width: 160px;
     box-shadow: 8px 0 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    border-left: 1px solid #555;
+    border: 1px solid #555;
     padding: 2px;
 }
 
-.onpage-bar-subdiv:hover .onpage-bar-dropdown {
+.onpage-bar-subdiv:hover .onpage-bar-dropdown, .onpage-bar-dropdown:hover {
     display: block;
 }
 
@@ -103,5 +113,6 @@ div.onpage-bar-subdiv {
 }
 
 .onpage-bar-dropdown .drop-elem:hover:not(.active) {
-    background-color: #f1f1f1;
+    background-color: #e4e4e4;
 }
+
