@@ -11,50 +11,52 @@
             {% block nav_bar %}{{ super() }}{% endblock %}
             <br><br>
             {% block onpage_bar %}
-                <div class="onpage-bar">
-                    {% for but in bars_list -%}
-                        {% if but.active == 'self' and but.bar == 'task' -%}
-                            <div class="onpage-bar-subdiv">
-                                <b class="onpage-bar-elem active" style="cursor: default;">{{ but.text }} <b style="float: right">▶</b> </b>
-                                <div class="onpage-bar-dropdown">
-                                    {% for drop in bars_list -%}
-                                        {% if drop.bar == but.id and drop.active == 'sttelf' -%}
-                                            <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
-                                        {% elif drop.bar == but.id -%}
-                                            <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% elif but.active == 'parent' and but.bar == 'task' -%}
-                            <div class="onpage-bar-subdiv">
-                                <a class="onpage-bar-elem active" href="{{ but.href }}"> <b>{{ but.text }}</b> <b style="float: right">▶</b> </a>
-                                <div class="onpage-bar-dropdown">
-                                    {% for drop in bars_list -%}
-                                        {% if drop.bar == but.id and drop.active == 'self' -%}
-                                            <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
-                                        {% elif drop.bar == but.id -%}
-                                            <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% elif but.bar == 'task' -%}
-                            <div class="onpage-bar-subdiv">
-                                <a class="onpage-bar-elem" href="{{ but.href }}">{{ but.text }} <b style="float: right">▶</b> </a>
-                                <div class="onpage-bar-dropdown">
-                                    {% for drop in bars_list -%}
-                                        {% if drop.bar == but.id and drop.active == 'self' -%}
-                                            <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
-                                        {% elif drop.bar == but.id -%}
-                                            <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                <nav id="onpage-nav-bar">
+                    <ul>
+                        {% for but in bars_list -%}
+                            {% if but.active == 'self' and but.bar == 'task' -%}
+                                <li>
+                                    <b class="element active" style="cursor: default;">{{ but.text }} <b style="float: right">▶</b> </b>
+                                    <div class="onpage-bar-dropdown">
+                                        {% for drop in bars_list -%}
+                                            {% if drop.bar == but.id and drop.active == 'sttelf' -%}
+                                                <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
+                                            {% elif drop.bar == but.id -%}
+                                                <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% elif but.active == 'parent' and but.bar == 'task' -%}
+                                <li>
+                                    <a class="element active" href="{{ but.href }}"> <b>{{ but.text }}</b> <b style="float: right">▶</b> </a>
+                                    <div class="onpage-bar-dropdown">
+                                        {% for drop in bars_list -%}
+                                            {% if drop.bar == but.id and drop.active == 'self' -%}
+                                                <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
+                                            {% elif drop.bar == but.id -%}
+                                                <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% elif but.bar == 'task' -%}
+                                <li>
+                                    <a class="element" href="{{ but.href }}">{{ but.text }} <b style="float: right">▶</b> </a>
+                                    <div class="onpage-bar-dropdown">
+                                        {% for drop in bars_list -%}
+                                            {% if drop.bar == but.id and drop.active == 'self' -%}
+                                                <b class="drop-elem active" style="cursor: default;">{{ drop.text }}</b>
+                                            {% elif drop.bar == but.id -%}
+                                                <a class="drop-elem" href="{{ drop.href }}">{{ drop.text }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </nav>
                 <p>АГАГАГАГА</p>
             {% endblock %}
         {% endblock %}

@@ -10,7 +10,7 @@
     <body>
         {% block body %}
             {% block nav_bar %}
-                <nav>
+                <nav id="nav-bar">
                     <ul>
                         {% for but in bars_list -%}
                             {% if but.active == 'self' and but.bar == 'nav' -%}

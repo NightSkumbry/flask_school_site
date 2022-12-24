@@ -3,7 +3,7 @@
     padding-left: 4px
 }
 
-nav {
+nav#nav-bar {
 	height: 67px;
 	padding: 0 16px;
     display: block;
@@ -13,17 +13,18 @@ nav {
 	border: 1px solid #e7e7e7;
 }
 
-nav li {
+nav#nav-bar li {
 	border-right: 5px solid #f3f3f3;
 	align-items: center;
     display: inline-block;
 }
 
-nav ul {
+nav#nav-bar ul {
     padding: 0;
+    text-decoration: none;
 }
 
-nav .element {
+nav#nav-bar .element {
 	margin: auto;
 	display: block;
 	padding: 8px;
@@ -32,20 +33,20 @@ nav .element {
 	text-align: center;
 }
 
-nav a.element.active:hover {
+nav#nav-bar a.element.active:hover {
     background-color: #3674E7;
 }
 
-nav .element:hover:not(.active) {
+nav#nav-bar .element:hover:not(.active) {
 	background-color: #ddd;
 }
 
-nav .element.active {
+nav#nav-bar .element.active {
 	color: white;
 	background-color: #6495ED;
 }
 
-div.onpage-bar {
+nav#onpage-nav-bar {
 	margin: 0;
 	padding: 0;
 	width: 200px;
@@ -54,13 +55,19 @@ div.onpage-bar {
     border-bottom: none;
 }
 
-div.onpage-bar-subdiv {
+nav#onpage-nav-bar ul {
+    padding: 0;
+    text-decoration: none;
+    margin: 0;
+}
+
+nav#onpage-nav-bar li {
     position: relative;
     text-align: center;
     border-bottom: 1px solid #555;
 }
 
-.onpage-bar-elem {
+nav#onpage-nav-bar .element {
     display: block;
     text-decoration: none;
     color: #000;
@@ -69,16 +76,16 @@ div.onpage-bar-subdiv {
     vertical-align: middle;
 }
 
-.onpage-bar-elem.active {
+nav#onpage-nav-bar .element.active {
     background-color: #9577BB;
     color: white;
 }
 
-.onpage-bar-subdiv:hover .onpage-bar-elem.active {
+nav#onpage-nav-bar li:hover .element.active {
     background-color: #6B4B95;
 }
 
-.onpage-bar-subdiv:hover .onpage-bar-elem:not(.active) {
+nav#onpage-nav-bar li:hover .element:not(.active) {
     background-color: #555;
     color: white;
 }
